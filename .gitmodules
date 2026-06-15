@@ -1,0 +1,20 @@
+[submodule "references/OpenXR-Docs"]
+	path = references/OpenXR-Docs
+	url = https://github.com/KhronosGroup/OpenXR-Docs.git
+	branch = main
+[submodule "references/OpenXR-Guide"]
+	path = references/OpenXR-Guide
+	url = https://github.com/KhronosGroup/OpenXR-Guide.git
+	branch = main
+[submodule "references/OpenXR-Registry"]
+	path = references/OpenXR-Registry
+	url = https://github.com/KhronosGroup/OpenXR-Registry.git
+	branch = main
+[submodule "references/OpenXR-SDK"]
+	path = references/OpenXR-SDK
+	url = https://github.com/KhronosGroup/OpenXR-SDK.git
+	branch = main
+[submodule "references/OpenXR-SDK-Source"]
+	path = references/OpenXR-SDK-Source
+	url = https://github.com/KhronosGroup/OpenXR-SDK-Source.git
+	branch = main
