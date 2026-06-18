@@ -17,7 +17,7 @@ A Claude Code skill that answers OpenXR questions by referencing locally cloned 
 Clone with `--recurse-submodules` — the reference repos are git submodules:
 
 ```bash
-git clone --recurse-submodules <repo-url> ~/.claude/skills/openxr
+git clone --recurse-submodules https://github.com/rygo6/OpenXR-AGENTS.git ~/.claude/skills/openxr
 cd ~/.claude/skills/openxr
 git submodule update --remote
 ```
