@@ -1,6 +1,6 @@
-# Claude OpenXR Skill
+# OpenXR-AGENTS
 
-A Claude Code skill that answers OpenXR questions by referencing locally cloned official repositories, rather than relying solely on training data.
+An agent skill that answers OpenXR questions by referencing locally cloned official repositories, rather than relying solely on training data. It is agent-agnostic and works with any coding agent that supports skills (Claude Code, Codex, etc.).
 
 ### Reference repos included
 
@@ -14,14 +14,24 @@ A Claude Code skill that answers OpenXR questions by referencing locally cloned 
 
 ## Installation
 
+Install once into the shared agent skills directory, then symlink it into each agent's skills folder.
+
 Clone with `--recurse-submodules` — the reference repos are git submodules:
 
 ```bash
-git clone --recurse-submodules https://github.com/rygo6/OpenXR-AGENTS.git ~/.claude/skills/openxr
-cd ~/.claude/skills/openxr
+git clone --recurse-submodules git@github.com:rygo6/OpenXR-AGENTS.git ~/.agents/skills/openxr
+cd ~/.agents/skills/openxr
 git submodule update --remote
+```
+
+Then link it into the agents you use:
+
+```bash
+mkdir -p ~/.claude/skills ~/.codex/skills
+ln -s ~/.agents/skills/openxr ~/.claude/skills/openxr
+ln -s ~/.agents/skills/openxr ~/.codex/skills/openxr
 ```
 
 ## Usage
 
-Once installed open Claude Code and run `/openxr`.
+Once installed, invoke `/openxr` from any agent that supports skills.
