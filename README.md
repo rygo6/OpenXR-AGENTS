@@ -8,6 +8,7 @@ An agent skill that answers OpenXR questions by referencing locally cloned offic
 |------|---------|
 | `references/OpenXR-SDK` | Released headers (`openxr.h`, reflection headers) and loader build |
 | `references/OpenXR-SDK-Source` | Full source: loader, API layers, conformance tests, `xr.xml` registry |
+| `references/OpenXR-CTS` | Conformance Test Suite: conformance framework, test cases, and validation layer |
 | `references/OpenXR-Docs` | Official OpenXR specification source (AsciiDoc) |
 | `references/OpenXR-Guide` | Conceptual guides and design philosophy |
 | `references/OpenXR-Registry` | Published spec snapshots (HTML/PDF) and per-version man pages |

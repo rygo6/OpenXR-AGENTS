@@ -10,6 +10,7 @@ When answering any question about OpenXR, always consult the local repos first. 
 ```
 references/OpenXR-SDK/          ← Released headers (openxr.h, reflection) + loader build
 references/OpenXR-SDK-Source/   ← Full source: loader, API layers, conformance tests, xr.xml registry
+references/OpenXR-CTS/          ← Conformance Test Suite: conformance framework, test cases, runtime validation
 references/OpenXR-Docs/         ← Official OpenXR specification source (AsciiDoc)
 references/OpenXR-Guide/        ← Conceptual guides and design philosophy
 references/OpenXR-Registry/     ← Published spec snapshots (HTML/PDF), per-version man pages
@@ -28,6 +29,13 @@ references/OpenXR-Registry/     ← Published spec snapshots (HTML/PDF), per-ver
 2. Check `references/OpenXR-SDK-Source/src/api_layers/` for API layer implementation patterns
 3. Check `references/OpenXR-SDK/include/openxr/openxr_loader_negotiation.h` for the loader↔runtime↔layer ABI
 
+### Answering conformance / testing questions
+1. Prefer `references/OpenXR-CTS/` — the dedicated Conformance Test Suite repo
+2. Check `references/OpenXR-CTS/src/conformance/framework/` for the test harness and helpers
+3. Check `references/OpenXR-CTS/src/conformance/conformance_test/` for the actual test cases per feature/extension
+4. Check `references/OpenXR-CTS/src/conformance/conformance_layer/` for the validation API layer used during testing
+5. See `references/OpenXR-CTS/src/conformance/README.md` and `BUILDING.md` for how the suite is run and structured
+
 ### Answering conceptual questions
 - Prefer `OpenXR-Guide/chapters/` for high-level concepts (frame submission, design philosophy, "what is OpenXR")
 - Prefer `OpenXR-Docs/specification/sources/chapters/` for precise spec-level answers
@@ -44,6 +52,7 @@ references/OpenXR-Registry/     ← Published spec snapshots (HTML/PDF), per-ver
 |------|-----------|
 | OpenXR-SDK | `include/openxr/openxr.h`, `openxr_reflection.h`, `openxr_platform.h`, `openxr_loader_negotiation.h` |
 | OpenXR-SDK-Source | `specification/registry/xr.xml`, `src/loader/`, `src/api_layers/`, `src/conformance/`, `src/tests/` |
+| OpenXR-CTS | `src/conformance/framework/`, `src/conformance/conformance_test/`, `src/conformance/conformance_layer/`, `src/conformance/conformance_cli/`, `src/conformance/README.md`, `BUILDING.md` |
 | OpenXR-Docs | `specification/sources/chapters/` (`fundamentals.adoc`, `session.adoc`, `rendering.adoc`, `input.adoc`, `spaces.adoc`, `semantic_paths.adoc`, `view_configurations.adoc`), `chapters/extensions/`, `specification/sources/openxr.adoc` |
 | OpenXR-Guide | `chapters/what_is_openxr.md`, `frame_submission.md`, `goals_design_philosophy.md` |
 | OpenXR-Registry | `specs/1.1/html/xrspec.html`, `specs/1.1/man/html/<Symbol>.html` (also `1.0`, `1.0-khr`, `1.1-khr`, `0.90`) |

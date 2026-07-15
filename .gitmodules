@@ -18,3 +18,7 @@
 	path = references/OpenXR-SDK-Source
 	url = https://github.com/KhronosGroup/OpenXR-SDK-Source.git
 	branch = main
+[submodule "references/OpenXR-CTS"]
+	path = references/OpenXR-CTS
+	url = https://github.com/KhronosGroup/OpenXR-CTS.git
+	branch = devel
