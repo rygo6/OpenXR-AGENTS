@@ -1,6 +1,6 @@
 ---
 name: openxr
-description: Answer questions about OpenXR by referencing local cloned repos. Use this skill whenever the user asks anything about OpenXR, XR/VR/AR runtimes, the OpenXR loader, API layers, sessions, swapchains, action/input systems, spaces and reference frames, view configurations, frame submission, OpenXR extensions, or the OpenXR conformance suite. Always consult the local repos before answering — do not rely solely on training knowledge.
+description: Answer questions about OpenXR and WebXR by referencing local cloned repos. Use this skill whenever the user asks anything about OpenXR, XR/VR/AR runtimes, the OpenXR loader, API layers, sessions, swapchains, action/input systems, spaces and reference frames, view configurations, frame submission, OpenXR extensions, the OpenXR conformance suite, or the WebXR Device API (the browser-facing XR spec). Always consult the local repos before answering — do not rely solely on training knowledge.
 ---
 
 # OpenXR Local Reference Skill
@@ -14,7 +14,10 @@ references/OpenXR-CTS/          ← Conformance Test Suite: conformance framewor
 references/OpenXR-Docs/         ← Official OpenXR specification source (AsciiDoc)
 references/OpenXR-Guide/        ← Conceptual guides and design philosophy
 references/OpenXR-Registry/     ← Published spec snapshots (HTML/PDF), per-version man pages
+references/WebXR/               ← WebXR Device API spec source (Bikeshed) + explainers
 ```
+
+> OpenXR is the native runtime API; WebXR is the browser-facing API. They are distinct specs from different bodies (Khronos vs. W3C Immersive Web WG). Consult `references/WebXR/` only for WebXR questions, `references/OpenXR-*` for native OpenXR questions.
 
 ## How to use the repos
 
@@ -36,6 +39,17 @@ references/OpenXR-Registry/     ← Published spec snapshots (HTML/PDF), per-ver
 4. Check `references/OpenXR-CTS/src/conformance/conformance_layer/` for the validation API layer used during testing
 5. See `references/OpenXR-CTS/src/conformance/README.md` and `BUILDING.md` for how the suite is run and structured
 
+### Answering WebXR (browser API) questions
+1. The normative spec lives entirely in `references/WebXR/index.bs` (Bikeshed source) — grep it for interfaces (`XRSession`, `XRFrame`, `XRReferenceSpace`, `XRWebGLLayer`, etc.), IDL, and algorithm steps
+2. For conceptual / non-normative context, read the explainers at the repo root:
+   - `explainer.md` — overall WebXR Device API overview
+   - `input-explainer.md` — input sources, select events, targeting
+   - `spatial-tracking-explainer.md` — reference spaces, viewer/local/bounded/unbounded tracking
+   - `privacy-security-explainer.md` — permissions, user consent, data exposure
+   - `accessibility-considerations-explainer.md` — accessibility guidance
+   - `webvr-migration.md` — migrating from the legacy WebVR API
+3. The core Device API is only one module — AR, layers, hand input, depth sensing, anchors, etc. live in separate `immersive-web` repos not vendored here; note that when a feature isn't in `index.bs`
+
 ### Answering conceptual questions
 - Prefer `OpenXR-Guide/chapters/` for high-level concepts (frame submission, design philosophy, "what is OpenXR")
 - Prefer `OpenXR-Docs/specification/sources/chapters/` for precise spec-level answers
@@ -56,6 +70,7 @@ references/OpenXR-Registry/     ← Published spec snapshots (HTML/PDF), per-ver
 | OpenXR-Docs | `specification/sources/chapters/` (`fundamentals.adoc`, `session.adoc`, `rendering.adoc`, `input.adoc`, `spaces.adoc`, `semantic_paths.adoc`, `view_configurations.adoc`), `chapters/extensions/`, `specification/sources/openxr.adoc` |
 | OpenXR-Guide | `chapters/what_is_openxr.md`, `frame_submission.md`, `goals_design_philosophy.md` |
 | OpenXR-Registry | `specs/1.1/html/xrspec.html`, `specs/1.1/man/html/<Symbol>.html` (also `1.0`, `1.0-khr`, `1.1-khr`, `0.90`) |
+| WebXR | `index.bs` (full spec source), `explainer.md`, `input-explainer.md`, `spatial-tracking-explainer.md`, `privacy-security-explainer.md`, `accessibility-considerations-explainer.md`, `webvr-migration.md` |
 
 ## Answering strategy
 

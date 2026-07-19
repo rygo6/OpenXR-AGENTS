@@ -12,6 +12,7 @@ An agent skill that answers OpenXR questions by referencing locally cloned offic
 | `references/OpenXR-Docs` | Official OpenXR specification source (AsciiDoc) |
 | `references/OpenXR-Guide` | Conceptual guides and design philosophy |
 | `references/OpenXR-Registry` | Published spec snapshots (HTML/PDF) and per-version man pages |
+| `references/WebXR` | WebXR Device API spec source (`index.bs`, Bikeshed) and explainers (browser-facing XR) |
 
 ## Installation
 
