@@ -22,3 +22,7 @@
 	path = references/OpenXR-CTS
 	url = https://github.com/KhronosGroup/OpenXR-CTS.git
 	branch = devel
+[submodule "references/WebXR"]
+	path = references/WebXR
+	url = https://github.com/immersive-web/webxr.git
+	branch = main
