@@ -33,6 +33,13 @@ ln -s ~/.agents/skills/openxr ~/.claude/skills/openxr
 ln -s ~/.agents/skills/openxr ~/.codex/skills/openxr
 ```
 
+On Windows, use `mklink /J` to create a junction instead (run in `cmd`, no admin rights needed):
+
+```bat
+mklink /J "%USERPROFILE%\.claude\skills\openxr" "%USERPROFILE%\.agents\skills\openxr"
+mklink /J "%USERPROFILE%\.codex\skills\openxr"  "%USERPROFILE%\.agents\skills\openxr"
+```
+
 ## Usage
 
 Once installed, invoke `/openxr` from any agent that supports skills.
