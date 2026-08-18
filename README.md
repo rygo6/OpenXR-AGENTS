@@ -17,13 +17,17 @@ An agent skill that answers OpenXR questions by referencing locally cloned offic
 
 Install once into the shared agent skills directory, then symlink it into each agent's skills folder.
 
-Clone with `--recurse-submodules` — the reference repos are git submodules:
+The reference repos are git submodules. Initialize them one level deep only — they are read-only
+references that are never built, so nested build dependencies are pure overhead:
 
 ```bash
-git clone --recurse-submodules git@github.com:rygo6/OpenXR-AGENTS.git ~/.agents/skills/openxr
+git clone git@github.com:rygo6/OpenXR-AGENTS.git ~/.agents/skills/openxr
 cd ~/.agents/skills/openxr
+git submodule update --init
 git submodule update --remote
 ```
+
+Do not pass `--recursive` or clone with `--recurse-submodules`.
 
 Then link it into the agents you use:
 
