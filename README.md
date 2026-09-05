@@ -7,7 +7,7 @@ An agent skill that answers OpenXR questions by referencing locally cloned offic
 | Repo | Purpose |
 |------|---------|
 | `references/OpenXR-SDK` | Released headers (`openxr.h`, reflection headers) and loader build |
-| `references/OpenXR-SDK-Source` | Full source: loader, API layers, conformance tests, `xr.xml` registry |
+| `references/OpenXR-SDK-Source` | Loader, API layers, tests, and `xr.xml` registry |
 | `references/OpenXR-CTS` | Conformance Test Suite: conformance framework, test cases, and validation layer |
 | `references/OpenXR-Docs` | Official OpenXR specification source (AsciiDoc) |
 | `references/OpenXR-Guide` | Conceptual guides and design philosophy |
@@ -17,17 +17,19 @@ An agent skill that answers OpenXR questions by referencing locally cloned offic
 
 Install once into the shared agent skills directory, then symlink it into each agent's skills folder.
 
-The reference repos are git submodules. Initialize them one level deep only — they are read-only
-references that are never built, so nested build dependencies are pure overhead:
+The reference repositories are Git submodules. Initialize them without nested dependencies for
+source lookup:
 
 ```bash
 git clone git@github.com:rygo6/OpenXR-AGENTS.git ~/.agents/skills/openxr
 cd ~/.agents/skills/openxr
 git submodule update --init
-git submodule update --remote
 ```
 
 Do not pass `--recursive` or clone with `--recurse-submodules`.
+
+The commands above use the recorded reference revisions. To deliberately refresh existing
+references, review local changes first, then run `git submodule update --remote` and inspect the result.
 
 Then link it into the agents you use:
 
@@ -46,4 +48,4 @@ mklink /J "%USERPROFILE%\.codex\skills\openxr"  "%USERPROFILE%\.agents\skills\op
 
 ## Usage
 
-Once installed, invoke `/openxr` from any agent that supports skills.
+Once installed, request the `openxr` skill by name or use your agent’s skill picker or invocation syntax.
